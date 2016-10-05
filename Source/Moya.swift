@@ -296,9 +296,9 @@ public extension MoyaProvider {
 
     public final class func DefaultEndpointMapping(target: Target) -> Endpoint<Target> {
         if let url = target.baseURL.URLByAppendingPathComponent(target.path) {
-            return Endpoint(URL: url.absoluteString, sampleResponseClosure: {.NetworkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters)
+            return Endpoint(URL: url.absoluteString!, sampleResponseClosure: {.NetworkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters)
         } else {
-            return  Endpoint(URL: target.baseURL, sampleResponseClosure: {.NetworkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters)
+            return  Endpoint(URL: target.baseURL.absoluteString!, sampleResponseClosure: {.NetworkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters)
         }
     }
 
